@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>@ViewBag.Title - ЭАК</title>
+    <link rel="shortcut icon" type="image/png" href="~/Content/img/favicon.ico" />
+    @Styles.Render("~/Content/css")
+    <!-- =============== BOOTSTRAP STYLES ===============-->
+    <link rel="stylesheet" href="~/Content/css/bootstrap.css" id="bscss">
+    <!-- =============== APP STYLES ===============-->
+    <link rel="stylesheet" href="~/Content/css//app.css" id="maincss">
+</head>
+<body>
+    <div class="wrapper">
+        @{Html.RenderPartial("_Header", (EMR.DAL2.Identity.AppUser)ViewBag.User);}
+        @{Html.RenderPartial("_Menu", (EMR.DAL2.Identity.AppUser)ViewBag.User);}
+        @{Html.RenderPartial("_OffSideBar");}
+
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jsMain")
+    <footer class="footer-container">
+        <span>&copy; 2018 - ЭАК</span>
+    </footer>
+
+    <div id="overlay" style="display:none; z-index:999;">       
+        <div id="loading-img" class="card-body whirl traditional">
+
+        </div>
+    </div>   
+
+</body>
+</html>

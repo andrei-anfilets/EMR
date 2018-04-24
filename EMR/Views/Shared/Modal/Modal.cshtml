@@ -1,0 +1,19 @@
+﻿@model String
+
+<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="myModalLabelLarge" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabelLarge">@Model</h4>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalContent">...</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Отмена</button>
+                <button class="btn btn-primary" type="button">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>

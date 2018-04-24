@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Пользователи";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<section class="section-container">
+    <!-- Page content-->
+
+    <div class="content-wrapper" id="mainContent">
+        <section class="content-header">
+            @using (Ajax.BeginForm("UserList", "Users", new { }, new AjaxOptions() { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "usersDiv" }, new { @id = "filterForm" }))
+            {
+                <div class="row">
+                    <div class="col-lg-4" style="padding:5px;">
+                        <div class="box-tools">
+                            <div class="input-group input-group-sm">
+                                <input type="text" name="filter" id="filterBox" class="form-control pull-right" placeholder="Поиск">
+                                <div class="input-group-btn">
+                                    <button type="submit" id="sbmtBtn" class="btn btn-default"><i class="fa fa-search"></i></button>    
+                                    <button type="button" id="clearBtn" class="btn btn-default"><i class="fa fa-remove"></i></button> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </section>
+        <div id="usersDiv">
+
+        </div>
+    </div>
+</section>
+
+@{Html.RenderPartial("~/Views/Shared/Modal/Modal.cshtml", "Пользователь");}
+
+@{Html.RenderPartial("~/Views/Shared/Modal/ModalSmall.cshtml", "Удалить запись?");}
+
+        <script>
+            document.addEventListener("DOMContentLoaded",
+                function () {
+                    $('#filterForm').submit();
+                    $('#clearBtn').click(function () {
+                        $('#filterBox').val('');
+                        $('#sbmtBtn').click();
+                    });
+                });
+            
+
+        </script>

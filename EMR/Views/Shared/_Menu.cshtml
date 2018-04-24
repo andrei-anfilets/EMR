@@ -1,0 +1,70 @@
+﻿@model EMR.DAL2.Identity.AppUser
+
+
+<aside class="aside-container">
+    <!-- START Sidebar (left)-->
+    <div class="aside-inner">
+        <nav class="sidebar" data-sidebar-anyclick-close="">
+            <!-- START sidebar nav-->
+            <ul class="sidebar-nav">
+                <!-- START user info-->
+                <li class="has-user-block">
+                    <div class="collapse" id="user-block">
+                        <div class="item user-block">
+                            <!-- User picture-->
+                            <div class="user-block-picture">
+                                <div class="user-block-status">
+                                    <img class="img-thumbnail rounded-circle" src="~/Content/img/user/02.jpg" alt="Avatar" width="60" height="60">
+                                    <div class="circle bg-success circle-lg"></div>
+                                </div>
+                            </div>
+                            <!-- Name and Job-->
+                            <div class="user-block-info">
+                                <span class="user-block-name">Привет, @Model.UserName</span>
+                                <span class="user-block-role">@Model.Role.Name</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!-- END user info-->
+                <!-- Iterates over all sidebar items-->
+                <li class="nav-heading">
+                     <span data-localize="sidebar.heading.HEADER">Меню</span>
+                </li>
+                <li class=" ">
+                    <a href="@Url.Action("Index", "Main")" title="Главная">
+                        <em class="icon-control-start"></em>
+                        <span data-localize="sidebar.nav.WIDGETS">Главная</span>
+                    </a>
+                </li>
+                <li class=" ">
+                    <a href="@Url.Action("Visitors", "Main")" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#mainContent"  title="Приемы">
+                        <div class="float-right badge badge-success">3</div>
+                        <em class="icon-user-follow"></em>
+                        <span data-localize="sidebar.nav.WIDGETS">Приемы</span>
+                    </a>
+                </li>
+                <!--Admin area menu-->
+                <li class="nav-heading ">
+                    <span data-localize="sidebar.heading.COMPONENTS">Администрирование</span>
+                </li>
+                <li class=" ">
+                    <a href="@Url.Action("Index", "Users")" title="Widgets">                        
+                        <em class="icon-user"></em>
+                        <span data-localize="sidebar.nav.WIDGETS">Пользователи ЭАК</span> 
+                    </a>
+                </li>
+                <li class=" ">
+                    <a href="widgets.html" title="Widgets">                       
+                        <em class="icon-settings"></em>
+                        <span data-localize="sidebar.nav.WIDGETS">Параметры</span>
+                    </a>
+                </li>
+                         
+                
+            </ul>
+            <!-- END sidebar nav-->
+        </nav>
+    </div>
+    <!-- END Sidebar (left)-->
+</aside>

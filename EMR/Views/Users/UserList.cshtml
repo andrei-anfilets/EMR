@@ -1,0 +1,76 @@
+﻿@model IEnumerable<EMR.DAL2.Identity.AppUser>
+
+
+<div class="card card-default">
+    <button class="mb-1 btn btn-outline-success" id="AddBtn" type="button" style="max-width: 120px;margin: 5px 0px 0px 5px;">
+        <i class="icon-plus"></i>
+        Создать
+    </button>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Role)
+                </th>
+                <th>
+                    Логин
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        ФИО
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Role.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>                      
+                        <a href="@Url.Action("Create", "Users")" data-ajax-success="onComplete();" data-ajax-failure="onFailure();" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace"  data-ajax-update="#modalContent">
+                            <button type="button" title="Редактировать" class="btn btn-sm btn-info mr-2 command-edit">
+                                <em class="fa fa-edit fa-fw"></em>
+                            </button>
+                        </a>
+                        <button type="button" title="Удалить" class="btn btn-sm btn-danger command-delete">
+                        <em class="fa fa-trash fa-fw"></em></button>
+                        <button type="button" title="Сброс пароля" class="btn btn-sm btn-danger command-delete">
+                            <em class="fa fa-reply-all fa-fw"></em>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+    <script>
+        $('#AddBtn').click(function () {
+            var url = "/Admin/User/Create";
+            $.get(url, null, function (response) {
+                $("#modalContent").html(response);
+            });
+            $('#modal-default').modal();
+        });
+
+        function Edit() {
+            $('#modal-default').modal();
+        }
+
+        function onComplete()
+        {
+            $('#modal-default').modal();
+        }
+
+        function onFailure()
+        {
+            $('#modal-default').modal();
+        }
+    </script>
